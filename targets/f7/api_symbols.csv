@@ -1087,7 +1087,7 @@ Function,+,felica_save,_Bool,"const FelicaData*, FlipperFormat*"
 Function,+,felica_service_get_attribute_string,void,"const FelicaService*, FuriString*"
 Function,+,felica_set_uid,_Bool,"FelicaData*, const uint8_t*, size_t"
 Function,+,felica_verify,_Bool,"FelicaData*, const FuriString*"
-Function,+,felica_write_directory_tree,void,"const FelicaData*, FuriString*"
+Function,+,felica_write_directory_tree,void,"const FelicaSystem*, FuriString*"
 Function,-,feof,int,FILE*
 Function,-,feof_unlocked,int,FILE*
 Function,-,ferror,int,FILE*
