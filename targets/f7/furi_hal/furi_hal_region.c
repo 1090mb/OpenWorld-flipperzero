@@ -87,13 +87,13 @@ void furi_hal_region_init(void) {
 }
 
 const FuriHalRegion* furi_hal_region_get(void) {
-    const FuriHalVersionRegion region = furi_hal_version_get_hw_region();
     const FuriHalRegion* ret;
 
     furi_check(furi_mutex_acquire(furi_hal_dynamic_region_mutex, FuriWaitForever) == FuriStatusOk);
 
-    if(region < FuriHalVersionRegionWorld && furi_hal_dynamic_region == NULL) {
-        ret = furi_hal_static_regions[region];
+    // OpenWorld: Always use unlocked region (00) to remove frequency restrictions
+    if(furi_hal_dynamic_region == NULL) {
+        ret = &furi_hal_region_zero;
     } else {
         ret = furi_hal_dynamic_region;
     }
