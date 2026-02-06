@@ -63,8 +63,9 @@ void console_view_print(JsConsoleView* console_view, const char* text) {
     uint8_t utf8_bytes_left = 0;
     uint8_t line_break_cnt = 0;
     bool line_trim = false;
+    size_t text_len = strlen(text);
 
-    for(size_t i = 0; i < strlen(text); i++) {
+    for(size_t i = 0; i < text_len; i++) {
         if(text[i] & 0x80) { // UTF8 or another non-ascii character byte
             if(utf8_bytes_left > 0) {
                 utf8_bytes_left--;

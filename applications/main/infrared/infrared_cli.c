@@ -182,7 +182,9 @@ static bool infrared_cli_parse_raw(const char* str, InfraredSignal* signal) {
         return false;
     float duty_cycle = duty_cycle_u32 / 100.0f;
 
-    str += strlen(frequency_str) + strlen(duty_cycle_str) + INFRARED_CLI_BUF_SIZE;
+    size_t frequency_str_len = strlen(frequency_str);
+    size_t duty_cycle_str_len = strlen(duty_cycle_str);
+    str += frequency_str_len + duty_cycle_str_len + INFRARED_CLI_BUF_SIZE;
 
     uint32_t* timings = malloc(sizeof(uint32_t) * MAX_TIMINGS_AMOUNT);
     size_t timings_size = 0;
