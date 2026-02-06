@@ -1,0 +1,10 @@
+App(
+    appid="example_ai_classifier",
+    name="Example: AI Classifier",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="example_ai_classifier_app",
+    stack_size=2 * 1024,
+    requires=["gui"],
+    order=90,
+    fap_category="Examples",
+)
