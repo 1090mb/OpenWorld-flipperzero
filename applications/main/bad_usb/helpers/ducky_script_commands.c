@@ -7,9 +7,12 @@ typedef int32_t (*DuckyCmdCallback)(BadUsbScript* bad_usb, const char* line, int
 
 typedef struct {
     char* name;
+    size_t name_len;
     DuckyCmdCallback callback;
     int32_t param;
 } DuckyCmd;
+
+#define DUCKY_CMD(str, cb, p) {str, sizeof(str) - 1, cb, p}
 
 static int32_t ducky_fnc_delay(BadUsbScript* bad_usb, const char* line, int32_t param) {
     UNUSED(param);
@@ -254,31 +257,31 @@ static int32_t ducky_fnc_mouse_move(BadUsbScript* bad_usb, const char* line, int
 }
 
 static const DuckyCmd ducky_commands[] = {
-    {"REM", NULL, -1},
-    {"ID", NULL, -1},
-    {"DELAY", ducky_fnc_delay, -1},
-    {"STRING", ducky_fnc_string, 0},
-    {"STRINGLN", ducky_fnc_string, 1},
-    {"DEFAULT_DELAY", ducky_fnc_defdelay, -1},
-    {"DEFAULTDELAY", ducky_fnc_defdelay, -1},
-    {"STRINGDELAY", ducky_fnc_strdelay, -1},
-    {"STRING_DELAY", ducky_fnc_strdelay, -1},
-    {"DEFAULT_STRING_DELAY", ducky_fnc_defstrdelay, -1},
-    {"DEFAULTSTRINGDELAY", ducky_fnc_defstrdelay, -1},
-    {"REPEAT", ducky_fnc_repeat, -1},
-    {"SYSRQ", ducky_fnc_sysrq, -1},
-    {"ALTCHAR", ducky_fnc_altchar, -1},
-    {"ALTSTRING", ducky_fnc_altstring, -1},
-    {"ALTCODE", ducky_fnc_altstring, -1},
-    {"HOLD", ducky_fnc_hold, -1},
-    {"RELEASE", ducky_fnc_release, -1},
-    {"WAIT_FOR_BUTTON_PRESS", ducky_fnc_waitforbutton, -1},
-    {"MEDIA", ducky_fnc_media, -1},
-    {"GLOBE", ducky_fnc_globe, -1},
-    {"MOUSEMOVE", ducky_fnc_mouse_move, -1},
-    {"MOUSE_MOVE", ducky_fnc_mouse_move, -1},
-    {"MOUSESCROLL", ducky_fnc_mouse_scroll, -1},
-    {"MOUSE_SCROLL", ducky_fnc_mouse_scroll, -1},
+    DUCKY_CMD("REM", NULL, -1),
+    DUCKY_CMD("ID", NULL, -1),
+    DUCKY_CMD("DELAY", ducky_fnc_delay, -1),
+    DUCKY_CMD("STRING", ducky_fnc_string, 0),
+    DUCKY_CMD("STRINGLN", ducky_fnc_string, 1),
+    DUCKY_CMD("DEFAULT_DELAY", ducky_fnc_defdelay, -1),
+    DUCKY_CMD("DEFAULTDELAY", ducky_fnc_defdelay, -1),
+    DUCKY_CMD("STRINGDELAY", ducky_fnc_strdelay, -1),
+    DUCKY_CMD("STRING_DELAY", ducky_fnc_strdelay, -1),
+    DUCKY_CMD("DEFAULT_STRING_DELAY", ducky_fnc_defstrdelay, -1),
+    DUCKY_CMD("DEFAULTSTRINGDELAY", ducky_fnc_defstrdelay, -1),
+    DUCKY_CMD("REPEAT", ducky_fnc_repeat, -1),
+    DUCKY_CMD("SYSRQ", ducky_fnc_sysrq, -1),
+    DUCKY_CMD("ALTCHAR", ducky_fnc_altchar, -1),
+    DUCKY_CMD("ALTSTRING", ducky_fnc_altstring, -1),
+    DUCKY_CMD("ALTCODE", ducky_fnc_altstring, -1),
+    DUCKY_CMD("HOLD", ducky_fnc_hold, -1),
+    DUCKY_CMD("RELEASE", ducky_fnc_release, -1),
+    DUCKY_CMD("WAIT_FOR_BUTTON_PRESS", ducky_fnc_waitforbutton, -1),
+    DUCKY_CMD("MEDIA", ducky_fnc_media, -1),
+    DUCKY_CMD("GLOBE", ducky_fnc_globe, -1),
+    DUCKY_CMD("MOUSEMOVE", ducky_fnc_mouse_move, -1),
+    DUCKY_CMD("MOUSE_MOVE", ducky_fnc_mouse_move, -1),
+    DUCKY_CMD("MOUSESCROLL", ducky_fnc_mouse_scroll, -1),
+    DUCKY_CMD("MOUSE_SCROLL", ducky_fnc_mouse_scroll, -1),
 };
 
 #define TAG "BadUsb"
@@ -288,7 +291,7 @@ static const DuckyCmd ducky_commands[] = {
 int32_t ducky_execute_cmd(BadUsbScript* bad_usb, const char* line) {
     size_t cmd_word_len = strcspn(line, " ");
     for(size_t i = 0; i < COUNT_OF(ducky_commands); i++) {
-        size_t cmd_compare_len = strlen(ducky_commands[i].name);
+        size_t cmd_compare_len = ducky_commands[i].name_len;
 
         if(cmd_compare_len != cmd_word_len) {
             continue;
