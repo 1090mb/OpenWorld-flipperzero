@@ -12,7 +12,7 @@ typedef enum {
     ArchiveFileTypeSubGhz,
     ArchiveFileTypeLFRFID,
     ArchiveFileTypeInfrared,
-    ArchiveFileTypeBadUsb,
+    ArchiveFileTypeOpenUsb,
     ArchiveFileTypeU2f,
     ArchiveFileTypeUpdateManifest,
     ArchiveFileTypeApplication,

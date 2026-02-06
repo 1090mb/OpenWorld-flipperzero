@@ -185,11 +185,11 @@ App(
 )
 
 App(
-    appid="js_badusb",
+    appid="js_openusb",
     apptype=FlipperAppType.PLUGIN,
-    entry_point="js_badusb_ep",
+    entry_point="js_openusb_ep",
     requires=["js_app"],
-    sources=["modules/js_badusb.c"],
+    sources=["modules/js_openusb.c"],
 )
 
 App(
