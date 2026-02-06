@@ -1,0 +1,7 @@
+ADD_SCENE(open_usb, file_select, FileSelect)
+ADD_SCENE(open_usb, work, Work)
+ADD_SCENE(open_usb, error, Error)
+ADD_SCENE(open_usb, config, Config)
+ADD_SCENE(open_usb, config_layout, ConfigLayout)
+ADD_SCENE(open_usb, confirm_unpair, ConfirmUnpair)
+ADD_SCENE(open_usb, unpair_done, UnpairDone)

@@ -50,7 +50,7 @@ typedef enum {
     DolphinDeedIbuttonEmulate,
     DolphinDeedIbuttonAdd,
 
-    DolphinDeedBadUsbPlayScript,
+    DolphinDeedOpenUsbPlayScript,
 
     DolphinDeedU2fAuthorized,
     DolphinDeedGpioUartBridge,
