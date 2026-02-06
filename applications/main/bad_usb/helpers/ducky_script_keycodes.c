@@ -3,7 +3,7 @@
 
 typedef struct {
     char* name;
-    uint8_t name_len;
+    size_t name_len;
     uint16_t keycode;
 } DuckyKey;
 

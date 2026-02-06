@@ -7,7 +7,7 @@ typedef int32_t (*DuckyCmdCallback)(BadUsbScript* bad_usb, const char* line, int
 
 typedef struct {
     char* name;
-    uint8_t name_len;
+    size_t name_len;
     DuckyCmdCallback callback;
     int32_t param;
 } DuckyCmd;
