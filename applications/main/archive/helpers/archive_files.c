@@ -20,7 +20,7 @@ void archive_set_file_type(ArchiveFile_t* file, const char* path, bool is_folder
                     if(furi_string_search(
                            file->path, archive_get_default_path(ArchiveTabOpenUsb)) == 0) {
                         file->type = i;
-                        return; // *.txt file is a OpenUSB script only if it is in OpenUSB folder
+                        return; // *.txt file is an OpenUSB script only if it is in OpenUSB folder
                     }
                 } else {
                     file->type = i;

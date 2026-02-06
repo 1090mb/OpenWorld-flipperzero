@@ -34,7 +34,7 @@ static const DolphinDeedWeight dolphin_deed_weights[] = {
     {2, DolphinAppIbutton}, // DolphinDeedIbuttonEmulate
     {2, DolphinAppIbutton}, // DolphinDeedIbuttonAdd
 
-    {3, DolphinAppBadusb}, // DolphinDeedOpenUsbPlayScript
+    {3, DolphinAppOpenUsb}, // DolphinDeedOpenUsbPlayScript
     {3, DolphinAppPlugin}, // DolphinDeedU2fAuthorized
 
     {1, DolphinAppPlugin}, // DolphinDeedGpioUartBridge
