@@ -50,7 +50,7 @@ static uint8_t dolphin_deed_limits[] = {
     20, // DolphinAppNfc
     20, // DolphinAppIr
     20, // DolphinAppIbutton
-    20, // DolphinAppBadusb
+    20, // DolphinAppOpenUsb
     20, // DolphinAppPlugin
 };
 
