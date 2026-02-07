@@ -57,8 +57,17 @@ uint32_t asset_pack_list_available(AssetPack* asset_pack) {
         while(storage_dir_read(dir, &file_info, name, sizeof(name))) {
             if(file_info_is_dir(&file_info) && name[0] != '.') {
                 AssetPackInfo info;
-                snprintf(info.name, sizeof(info.name), "%s", name);
-                snprintf(info.path, sizeof(info.path), "%s/%s", ASSET_PACK_BASE_PATH, name);
+                size_t name_len = strlen(name);
+                if(name_len >= sizeof(info.name)) {
+                    name_len = sizeof(info.name) - 1;
+                }
+                memcpy(info.name, name, name_len);
+                info.name[name_len] = '\0';
+                
+                int path_len = snprintf(info.path, sizeof(info.path), "%s/%s", ASSET_PACK_BASE_PATH, name);
+                if(path_len < 0 || (size_t)path_len >= sizeof(info.path)) {
+                    continue; // Skip if path is too long
+                }
                 
                 // Check if manifest exists
                 FuriString* manifest_path = furi_string_alloc();

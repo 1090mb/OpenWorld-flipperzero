@@ -216,7 +216,7 @@ sources.extend(
 fwelf = fwenv["FW_ELF"] = fwenv.Program(
     "${FIRMWARE_BUILD_CFG}",
     sources,
-    LIBS=fwenv["TARGET_CFG"].linker_dependencies,
+    LIBS=fwenv["TARGET_CFG"].linker_dependencies + ["asset_packs"],
 )
 Depends(fwelf, fwenv["LINKER_SCRIPT_PATH"])
 

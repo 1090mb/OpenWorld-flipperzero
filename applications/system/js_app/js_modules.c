@@ -16,8 +16,8 @@
 
 typedef struct {
     FuriString* name;
-    const JsModuleConstructor create;
-    const JsModuleDestructor destroy;
+    JsModuleConstructor create;
+    JsModuleDestructor destroy;
     void* context;
 } JsModuleData;
 
