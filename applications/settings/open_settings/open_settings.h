@@ -5,11 +5,13 @@
 #include <gui/modules/variable_item_list.h>
 #include <furi_hal_region.h>
 #include <furi_hal_rtc.h>
+#include "open_world_settings.h"
 
 typedef struct {
     Gui* gui;
     ViewDispatcher* view_dispatcher;
     VariableItemList* var_item_list;
+    OpenWorldSettings settings;
 } OpenSettings;
 
 typedef enum {

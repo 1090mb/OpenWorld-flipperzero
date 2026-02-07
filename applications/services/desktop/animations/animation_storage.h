@@ -1,5 +1,13 @@
 #pragma once
 #include <stdint.h>
+#include <stdlib.h>
+
+// Define M_MEMORY_FULL if not already defined
+// This is required because LIST_DEF generates code that uses M_MEMORY_FULL
+#ifndef M_MEMORY_FULL
+#define M_MEMORY_FULL(type, size) abort()
+#endif
+
 #include <m-list.h>
 #include "views/bubble_animation_view.h"
 
