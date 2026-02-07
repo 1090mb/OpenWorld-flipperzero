@@ -22,6 +22,6 @@ env.Append(
         ),
     ],
     CPPDEFINES=[
-        '"M_MEMORY_FULL(x)=abort()"',
+        ('M_MEMORY_FULL(type, size)', 'abort()'),
     ],
 )
