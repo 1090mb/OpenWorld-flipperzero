@@ -7,5 +7,6 @@ App(
         "system_settings",
         "clock_settings",
         "about",
+        "asset_pack_settings",
     ],
 )

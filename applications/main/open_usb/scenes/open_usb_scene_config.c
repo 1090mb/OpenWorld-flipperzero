@@ -2,6 +2,7 @@
 
 enum SubmenuIndex {
     ConfigIndexKeyboardLayout,
+    ConfigIndexInterface,
     ConfigIndexBleUnpair,
 };
 
@@ -17,6 +18,8 @@ static void draw_menu(OpenUsbApp* open_usb) {
     variable_item_list_reset(var_item_list);
 
     variable_item_list_add(var_item_list, "Keyboard Layout (global)", 0, NULL, NULL);
+
+    variable_item_list_add(var_item_list, "Interface Mode", 0, NULL, NULL);
 
     variable_item_list_add(var_item_list, "Remove Pairing", 0, NULL, NULL);
 }
@@ -41,6 +44,8 @@ bool open_usb_scene_config_on_event(void* context, SceneManagerEvent event) {
         consumed = true;
         if(event.event == ConfigIndexKeyboardLayout) {
             scene_manager_next_scene(open_usb->scene_manager, OpenUsbSceneConfigLayout);
+        } else if(event.event == ConfigIndexInterface) {
+            scene_manager_next_scene(open_usb->scene_manager, OpenUsbSceneConfigInterface);
         } else if(event.event == ConfigIndexBleUnpair) {
             scene_manager_next_scene(open_usb->scene_manager, OpenUsbSceneConfirmUnpair);
         } else {

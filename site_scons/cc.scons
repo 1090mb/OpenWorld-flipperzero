@@ -27,7 +27,8 @@ ENV.AppendUnique(
         "-Wno-error=deprecated-declarations",
         "-Wno-address-of-packed-member",
         "-Wredundant-decls",
-        "-Wdouble-promotion",
+        # OpenWorld: Disabled due to mlib dictionary template false positives
+        # "-Wdouble-promotion",
         "-Wundef",
         "-fdata-sections",
         "-ffunction-sections",
