@@ -45,7 +45,7 @@ FuriPubSubSubscription*
 
     furi_check(furi_mutex_acquire(pubsub->mutex, FuriWaitForever) == FuriStatusOk);
     // put uninitialized item to the list
-    FuriPubSubSubscription* item = FuriPubSubSubscriptionList_push_raw(pubsub->items);
+    FuriPubSubSubscription* item = FuriPubSubSubscriptionList_push_new(pubsub->items);
 
     // initialize item
     item->callback = callback;
