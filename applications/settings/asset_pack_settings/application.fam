@@ -1,0 +1,10 @@
+App(
+    appid="asset_pack_settings",
+    name="Asset Packs",
+    apptype=FlipperAppType.SETTINGS,
+    entry_point="asset_pack_settings_app",
+    stack_size=2 * 1024,
+    fap_libs=["asset_packs"],
+    fap_icon="icon.png",
+    fap_category="Settings",
+)
