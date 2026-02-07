@@ -22,6 +22,7 @@ env.Append(
         ),
     ],
     CPPDEFINES=[
-        '"M_MEMORY_FULL(x)=abort()"',
+        ('M_MEMORY_FULL(type, size)', 'abort()'),
+        ('M_D1CT_OA_UPPER_BOUND', '0.7'),
     ],
 )

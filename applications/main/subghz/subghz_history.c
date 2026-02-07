@@ -164,7 +164,7 @@ bool subghz_history_add_to_history(
 
     FuriString* text;
     text = furi_string_alloc();
-    SubGhzHistoryItem* item = SubGhzHistoryItemArray_push_raw(instance->history->data);
+    SubGhzHistoryItem* item = SubGhzHistoryItemArray_push_new(instance->history->data);
     item->preset = malloc(sizeof(SubGhzRadioPreset));
     item->type = decoder_base->protocol->type;
     item->preset->frequency = preset->frequency;

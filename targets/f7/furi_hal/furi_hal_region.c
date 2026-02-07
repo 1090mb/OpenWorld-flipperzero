@@ -71,12 +71,13 @@ const FuriHalRegion furi_hal_region_jp = {
             .duty_cycle = 50,
         }}};
 
-static const FuriHalRegion* const furi_hal_static_regions[] = {
-    [FuriHalVersionRegionUnknown] = &furi_hal_region_zero,
-    [FuriHalVersionRegionEuRu] = &furi_hal_region_eu_ru,
-    [FuriHalVersionRegionUsCaAu] = &furi_hal_region_us_ca_au,
-    [FuriHalVersionRegionJp] = &furi_hal_region_jp,
-};
+// OpenWorld: Static regions array not used - always unlocking to region_zero
+// static const FuriHalRegion* const furi_hal_static_regions[] = {
+//     [FuriHalVersionRegionUnknown] = &furi_hal_region_zero,
+//     [FuriHalVersionRegionEuRu] = &furi_hal_region_eu_ru,
+//     [FuriHalVersionRegionUsCaAu] = &furi_hal_region_us_ca_au,
+//     [FuriHalVersionRegionJp] = &furi_hal_region_jp,
+// };
 
 static FuriHalRegion* furi_hal_dynamic_region;
 static FuriMutex* furi_hal_dynamic_region_mutex;
