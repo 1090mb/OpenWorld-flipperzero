@@ -1,0 +1,8 @@
+App(
+    appid="external_apps",
+    name="External applications",
+    apptype=FlipperAppType.METAPACKAGE,
+    provides=[
+        "ai_tools",
+    ],
+)
