@@ -1,0 +1,12 @@
+App(
+    appid="ai_tools",
+    name="AI Tools",
+    apptype=FlipperAppType.MENUEXTERNAL,
+    entry_point="ai_tools_app",
+    stack_size=2 * 1024,
+    icon="A_AI_14",
+    order=35,
+    requires=["gui"],
+    fap_icon="icon.png",
+    fap_category="Tools",
+)

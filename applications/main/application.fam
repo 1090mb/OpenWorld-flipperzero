@@ -12,6 +12,7 @@ App(
         "open_usb",
         "u2f",
         "archive",
+        "ai_tools",
         "main_apps_on_start",
     ],
 )
